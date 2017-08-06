@@ -209,6 +209,9 @@ class FileLayout extends BaseLayout
 		{
 			$this->addDebugMessage('<strong>Unable to find layout: </strong> ' . $layoutId);
 
+			// cache the empty path, no point looking for it again
+			static::$cache[$layoutId][$hash] = '';
+
 			return;
 		}
 
